@@ -1,0 +1,14 @@
+.sort {
+  display: flex;
+  align-self: flex-end;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .sort {
+    align-self: flex-start;
+  }
+}
