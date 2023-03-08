@@ -4,6 +4,8 @@ import { GoPlusSmall } from "react-icons/go";
 import { HiMinusSm } from "react-icons/hi";
 import {GiTrashCan} from "react-icons/gi"
 import "./Cartshopping.css";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 
 const Cartshopping = () => {
   const { buyProduct, setbuyProduct } = useContext(MyContext);
@@ -91,12 +93,15 @@ const Cartshopping = () => {
             ) : <h5>The cart is empty</h5>
           )}
       </div>
-       <div className="cart-summary">
+      <div className="cart-summary">
                   
        <div className="total-price">Total: {total} USD</div>
-       <button className="checkout-button">Checkout</button></div>
-       
-   </div>
+       {/* <Router> */}
+        <button className="checkout-button" >see products</button>
+       {/* </Router> */}
+       </div>
+
+     </div>
 
   );
 };
