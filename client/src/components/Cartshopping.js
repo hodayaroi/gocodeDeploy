@@ -1,14 +1,20 @@
 import React, { useContext } from "react";
 import MyContext from "../MyContext";
+import { useState, useEffect } from "react";
 import { GoPlusSmall } from "react-icons/go";
 import { HiMinusSm } from "react-icons/hi";
 import {GiTrashCan} from "react-icons/gi"
 import "./Cartshopping.css";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import CartList from "./CartList";
+
 
 
 const Cartshopping = () => {
+  const navigate = useNavigate();
   const { buyProduct, setbuyProduct } = useContext(MyContext);
+  const [idbuyProduct, setidbuyProduct]= useState("")
 
   const removeProduct = (id) => {
     if (id !== "") {
@@ -93,15 +99,9 @@ const Cartshopping = () => {
             ) : <h5>The cart is empty</h5>
           )}
       </div>
-      <div className="cart-summary">
-                  
-       <div className="total-price">Total: {total} USD</div>
-       {/* <Router> */}
-        <button className="checkout-button" >see products</button>
-       {/* </Router> */}
+       <label className="total-price">Total: {total} USD</label>
        </div>
 
-     </div>
 
   );
 };

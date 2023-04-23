@@ -1,4 +1,4 @@
-import  { Product } from "../models/Product.js";
+import {Product} from "../models/Product.js"
 
 export const addProductService = (productNew) => {
   const  createdProduct = new Product(productNew)

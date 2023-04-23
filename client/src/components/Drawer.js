@@ -4,8 +4,16 @@ import Button from '@mui/material/Button';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import Cartshopping from './Cartshopping'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import MyContext from '../MyContext';
 
 export default function TemporaryDrawer() {
+  const navigate = useNavigate();
+  const { buyProduct } = useContext(MyContext);
+  const handleClick = () => {
+    navigate('/cartList', { state: { buyProduct } });
+  };
   const [state, setState] = React.useState({
     right: false,
   });
@@ -34,7 +42,9 @@ export default function TemporaryDrawer() {
             <div>
             <AiOutlineCloseCircle fontSize={30} color='red'  onClick={toggleDrawer(anchor, false)} />
             <Cartshopping/>
-            </div>}
+            <Button onClick={handleClick}>Open Cart</Button>
+            </div>
+            }
           
           </Drawer>
           

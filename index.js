@@ -11,7 +11,6 @@ import {
 dotenv.config();
 const {PORT,DB_USER,DB_PASS,DB_HOST,DB_NAME}=process.env
 const app = express();
-
 mongoose.set('strictQuery', false);
 app.use(express.json());
 app.use(express.static("client/build"))
@@ -31,7 +30,7 @@ app.get("*",(req,res)=>{
 });
 
 mongoose.connect(
-  `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true$w=majority`,
+  `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`,
   {useNewUrlParser:true,useUnifiedTopology: true,wtimeout: 30000 },
   (err)=>{
     app.listen(PORT||9000,()=>{
@@ -40,6 +39,5 @@ mongoose.connect(
     })
   }
 )
-
 
 

@@ -1,7 +1,8 @@
 .product-filter {
   display: flex;
-  padding: 30px 0;
   justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 0;
 }
 
 @media (max-width: 480px) {
@@ -12,4 +13,8 @@
   .product-filter {
     flex-direction: column;
   }
+}
+.clock-container {
+  font-size: 32px;
+  margin-left: 20px;
 }

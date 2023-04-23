@@ -54,7 +54,7 @@ import {addProductService,getProductsAllService,getOneProductService,deleteProdu
   export const deleteProductController = async(req, res) => {
     try{
     const { productId } = req.params;
-    console.log(products)
+    console.log(productId)
     const product =await deleteProductService(productId);
     if(!product){
         res.status(404).send({message: "no such todo with the specific id"})

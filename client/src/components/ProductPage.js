@@ -33,8 +33,8 @@ const ProductPage = () => {
           <div className="product-info">
             <h2 className="product-title">{chosenProduct.title}</h2>
             <p className="product-description">{chosenProduct.description}</p>
-            <p className="product-price">${chosenProduct.price}</p>
             <p className="product-category">{chosenProduct.category}</p>
+            <p className="product-price">${chosenProduct.price}</p>
           </div>
         </div>
       )}

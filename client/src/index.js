@@ -4,48 +4,22 @@ import './index.css';
 import App from './App';
 import NotFoundPage from './components/NotFoundPage';
 import ProductPage from './components/ProductPage';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartList from './components/CartList';
+import Admin from './components/server';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element:<App />,
-  },
-  {
-    path:"products/:productId",
-    element: <ProductPage />
-  },
-  // {
-  //   path: "about",
-  //   element: <About />
-  // },
-  // {
-  //   path: "cart",
-  //   element: <Cart />
-  // },
-  {
-    path: '*',
-    element: <NotFoundPage />
-  },
-
-]);
-
-
 root.render(
   <React.StrictMode>
-    
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="products/:productId" element={<ProductPage />} />
+        <Route  path="/cartList" element={<CartList />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
-
-
-
-
-
-
-
-
-
-
