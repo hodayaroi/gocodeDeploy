@@ -8,7 +8,7 @@ const ProductPage = () => {
   const fetchSingleProduct = async () => {
     console.log(productId)
     const response = await fetch(
-      `http://fakestoreapi.com/products/${productId}`
+      `http://localhost:9000/api/productId/${productId}`
     );
     const data = await response.json();
     setChosenProduct(data);

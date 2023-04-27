@@ -1,71 +1,201 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import * as React from "react";
+import { useTable } from "react-table";
+import {Link} from "react-router-dom";
+import { useState, useEffect } from "react";
+import "./server.css"
+import { useNavigate } from "react-router-dom";
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+function Admin() {
+  const navigate = useNavigate()
+  const [products, setProducts] = React.useState([]);
+  const[updateProduct,setUpdateProduct]=useState(-1);
+  const [formData,setFormData]=React.useState({
+    title:'',
+    image:'',
+    dateCreated:Date.now(),
+    category:'',
+    description:'',
+    price:''
 
-const Admin= () => {
-  const classes = useStyles();
-  const [products, setProducts] = useState([]);
+  })
 
-  useEffect(() => {
-    fetch('/api/products') // Assuming your API endpoint for getting products is '/api/products'
+  
+ 
+    
+    
+
+
+  const handleEdit=(id)=>{
+    setUpdateProduct(id);
+    // Find the selected product by ID
+  const selectedProduct = products.find((product) => product._id === id);
+
+  // Update the formData state with the values of the selected product
+  setFormData({
+    title: selectedProduct.title,
+    image: selectedProduct.image,
+    dateCreated: selectedProduct.dateCreated,
+    category: selectedProduct.category,
+    description: selectedProduct.description,
+    price: selectedProduct.price
+  });
+  }
+
+ 
+
+  
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+       
+  
+
+  const handleSubmit = (event) => {
+    // event.preventDefault();
+    const id = updateProduct;
+    console.log(formData)
+    console.log(JSON.stringify(formData))
+  
+    fetch(`http://localhost:9000/api/updateProduct/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(formData),
+      headers: { "Content-Type": "application/json" }
+
+    })
       .then(response => response.json())
       .then(data => {
-        setProducts(data);
-      });
-  }, []);
-
-  const handleDelete = (productId) => {
-    fetch(`/api/products/${productId}`, { method: 'DELETE' }) // Assuming your API endpoint for deleting a product is '/api/products/:productId'
-      .then(response => response.json())
-      .then(data => {
-        // Remove the deleted product from the products state
-        setProducts(products.filter(product => product._id !== productId));
-      });
+        const updatedProducts = products.map(product => {
+          if (product._id === data._id) {
+            return data;
+            
+          }
+          return product;
+        });
+        setProducts(updatedProducts);
+        setUpdateProduct(-1);
+      })
+      .catch(error => console.error(error));
   };
 
+  const handleAdd = (event) => {
+    // event.preventDefault();
+    const id = updateProduct;
+    console.log(formData)
+    console.log(JSON.stringify(formData))
+  
+    fetch(`http://localhost:9000/api/addProduct`, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { "Content-Type": "application/json" }
+
+    })
+      .then(response => response.json())
+      .then(data => {
+        const updatedProducts = products.map(product => {
+          if (product._id === data._id) {
+            return data;
+            
+          }
+          return product;
+        });
+        setProducts(updatedProducts);
+        setUpdateProduct(-1);
+      })
+      .catch(error => console.error(error));
+  };
+  
+   
+
+  
+  useEffect(()=>{
+    fetch("http://localhost:9000/api/products")
+    .then(response=>response.json())
+    .then(data =>{
+      setProducts(data);
+
+    })})
+
+
+  const deleteProduct = (id)=>{
+    fetch(`http://localhost:9000/api/deleteProduct/${id}`,{
+      method:'DELETE'
+    }).then((result)=>{
+      result.json().then((resp)=>{
+        console.warn(resp)
+      })
+    })
+
+  }
+
+  
+    const closeButtonStyle = {
+      position: 'fixed',
+      top: '0',
+      left: '0',
+    };
+
   return (
-    <div>
+    <div className="Admin">
+      <div style={closeButtonStyle}>
+      <AiOutlineCloseCircle fontSize={30} color='red'  onClick={()=>{navigate(`/`)}} />
+      </div>
       <h1>Admin Page</h1>
-      <Link to="/">Go back to home page</Link>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="Products table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Category</TableCell>
-              <TableCell align="right">Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {products.map((product) => (
-              <TableRow key={product._id}>
-                <TableCell component="th" scope="row">{product.name}</TableCell>
-                <TableCell align="right">{product.price}</TableCell>
-                <TableCell align="right">{product.category}</TableCell>
-                <TableCell align="right">
-                  <Button variant="contained" color="primary" component={Link} to={`/admin/products/${product._id}`}>
-                    Edit
-                  </Button>
-                  <Button variant="contained" color="secondary" onClick={() => handleDelete(product._id)}>
-                    Delete
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <Link to="/admin/products/new">Add new product</Link> {/* Assuming the route for adding a new product is '/admin/products/new' */}
+      <div className="AdminTable">
+      <table>
+        <thead>
+          <tr>
+          <th>title</th>
+          <th>image</th>
+          <th>date created</th>
+          <th>category</th>
+          <th>description</th>
+          <th>price</th>
+          <th></th>
+          <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product)=>(
+            updateProduct===product._id? 
+            <tr  key={product._id} >
+        <td><input type="text" name="title" placeholder="enter a title" defaultValue={product.title} onChange={handleInputChange}  /></td>
+        <td><input type="text" name="image" placeholder="enter a url image" defaultValue={product.image} onChange={handleInputChange}/></td>
+        <td>{product.dateCreated}</td>
+        <td><input type="text" name="category" placeholder="enter a category" defaultValue={product.category} onChange={handleInputChange}  /></td>
+        <td><input type="text" name="description" placeholder="enter a description" defaultValue={product.description} onChange={handleInputChange} /></td>
+        <td><input type="number" name="price" placeholder="enter a price" defaultValue={product.price}onChange={handleInputChange}  /></td>
+        <td>
+          <button onClick={handleSubmit}>save</button>
+        </td>
+      </tr>:
+            <tr className="Clickable-row" key={product._id}  >
+              <td onClick={() => {navigate(`products/${product._id}`)}}>{product.title}</td>
+              <td onClick={() => {navigate(`products/${product._id}`)}}><img src={product.image} alt={product.title}  style={{ maxWidth: '100%', height: 'auto' }} /></td>
+              <td onClick={() => {navigate(`products/${product._id}`)}}>{new Date(product.dateCreated).toLocaleString('en-US', {timeZone: 'UTC', dateStyle: 'short', timeStyle: 'medium'})}</td>
+              <td onClick={() => {navigate(`products/${product._id}`)}}>{product.category}</td>
+              <td onClick={() => {navigate(`products/${product._id}`)}}>{product.description}</td>
+              <td onClick={() => {navigate(`products/${product._id}`)}}>{product.price}</td>
+              <td><button className="Delete-btn" onClick={()=>deleteProduct(product._id)}>delete</button></td>
+              <td><button className="Edit-btn" onClick={()=>handleEdit(product._id)}>edit</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      </div>
+      <h1>add product</h1>
+      <form className="AddProduct" >
+        <input type="text" name="title" required="required" placeholder="enter a title" onChange={handleInputChange}/>
+        <input type="text" name="image" required="required" placeholder="enter a url image" onChange={handleInputChange}/>
+        <input type="text" name="category" required="required" placeholder="enter a category" onChange={handleInputChange}/>
+        <input type="text" name="description" required="required" placeholder="enter a description" onChange={handleInputChange}/>
+        <input type="number" name="price" required="required" placeholder="enter a number" onChange={handleInputChange}/>
+        <button type="sumbit" onClick={()=>handleAdd()}>add</button>
+      </form>
+      
     </div>
   );
-};
+}
 
 export default Admin;

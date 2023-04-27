@@ -3,14 +3,17 @@ import Products from "./components/Products";
 import { useState, useEffect } from "react";
 import MyContext from "./MyContext";
 import TemporaryDrawer from "./components/Drawer";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, json } from "react-router-dom";
 import Admin from "./components/server.js"
+import Header from "./components/Header.js"
+
+
 
 
 
 const App = () => {
   const Allproducts = async () => {
-    const response = await fetch("https://fakestoreapi.com/products");
+    const response = await fetch("http://localhost:9000/api/products");
     const data = await response.json();
     setproductsData(data);
     setproductsCopy(data);
@@ -29,15 +32,11 @@ const App = () => {
 
   return (
     <MyContext.Provider value={{productsData ,setproductsData,Allproducts,productsCopy,buyProduct,setbuyProduct}}>
-    <div  className="App">
-    <Link to="/admin">
-        <button className="admin-button">Admin</button></Link>
-      <TemporaryDrawer/>
-      <Nav/>
-      
-
-      <Products/>
-    </div>
+     <div className="App">
+      <Header />
+        <Nav />
+        <Products />
+      </div>
     </MyContext.Provider>
     
   );

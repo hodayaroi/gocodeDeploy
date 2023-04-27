@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
+import { buffer } from "stream/consumers";
 const productSchema = new mongoose.Schema({
     title:{
       type:String,
       required:true
     },
-    img:{
+    image:{
       type:String,
-      required:true
+      require:true
     },
     dateCreated:{
       type:Date,

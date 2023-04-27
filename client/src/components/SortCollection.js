@@ -26,7 +26,7 @@ const SortCollection=()=>{
     return(
         <div className="collection-sort">
           <label width= {200}>Price range:</label>
-          <Slider  min={0} max={1000} 
+          <Slider min={0} max={1000} 
         getAriaLabel={() => 'Price range'}
         value={value}
         onChange={handleChange}

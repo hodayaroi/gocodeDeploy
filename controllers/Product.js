@@ -1,3 +1,4 @@
+import { Product } from "../models/Product.js";
 import {addProductService,getProductsAllService,getOneProductService,deleteProductService,updateProductService} from "../services/Product.js";
  export const getOneproductController  = async (req, res) => {
     try{
@@ -24,21 +25,23 @@ import {addProductService,getProductsAllService,getOneProductService,deleteProdu
   }
 
   export const addProductController = async (req, res) => {
-    try{
-      const productNew= { ...req.body };
-      const createdProduct= addProductService(productNew);
+    try {
+      const { title,image, description, price, category } = req.body;
+      const product = await Product.create({ title, description, price, category, image });
+      const createdProduct = addProductService(product);
       await createdProduct.save()
       res.send(createdProduct);
   
-    }catch(e){
+    } catch (e) {
       console.log(e)
       res.status(500).send(e.message)
     }
   }
+  
 
   export const updateProductController = async (req, res) => {
     const { productId } = req.params;
-    const updatedProduct = { ...req.body };
+    const updatedProduct ={...req.body};
     try {
       const result = await updateProductService(productId,updatedProduct);
       if(!result){

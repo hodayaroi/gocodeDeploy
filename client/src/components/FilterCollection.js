@@ -27,10 +27,10 @@ const FilterCollection =()=>{
           <label>Filter by:</label>
           <select  onChange={handleChange }>
           <option value="All products">All products</option>
-            <option value="men's clothing">men's clothing</option>
-            <option value="jewelery">jewelery</option>
-            <option value="electronics">electronics</option>
-            <option value="women's clothing">women's clothing</option>
+            <option value="cakes">cakes</option>
+            <option value="desserts">desserts</option>
+            <option value="Shabbat cake">Shabbat cake</option>
+            <option value="happy birthday cake">happy birthday cake</option>
           </select>
         </div>
     )

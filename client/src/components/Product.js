@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import MyContext from '../MyContext';
 import { useNavigate } from "react-router-dom";
 
+
 const Product =({id,imgUrl,title,price})=> {
    const navigate = useNavigate()
   const {productsData,buyProduct,setbuyProduct} = useContext(MyContext)
@@ -15,16 +16,16 @@ const Product =({id,imgUrl,title,price})=> {
     if(id!==""&& buyProduct){
       console.log(id)
       productsData.filter((elemnt)=>{
-        if(elemnt.id===id){
-          console.log(buyProduct.some(object => object.id === id))
-          if(!buyProduct.some(object => object.id === id)){
-            setbuyProduct([...buyProduct,{"id":elemnt.id,"title":elemnt.title,"price":elemnt.price,
+        if(elemnt._id===id){
+          console.log(buyProduct.some(object => object._id === id))
+          if(!buyProduct.some(object => object._id === id)){
+            setbuyProduct([...buyProduct,{"_id":elemnt._id,"title":elemnt.title,"price":elemnt.price,
             "description":elemnt.description,"category":elemnt.category,
             "image":elemnt.image,"rating":elemnt.rating,"countProduct":1}]);
           }
           else{
             setbuyProduct(buyProduct.filter((elemnt)=>{
-              if(elemnt.id===id){
+              if(elemnt._id===id){
                 elemnt.countProduct=elemnt.countProduct+1
                 return elemnt
 
@@ -47,10 +48,10 @@ const Product =({id,imgUrl,title,price})=> {
   const removePruduct=()=>{
     if(id!==""){
       setbuyProduct(buyProduct&&buyProduct.filter((elemnt)=>{
-        if(elemnt.id!==id){
+        if(elemnt._id!==id){
           return elemnt
         }
-        else if (elemnt.id===id){
+        else if (elemnt._id===id){
           elemnt.countProduct=elemnt.countProduct-1
           if (elemnt.countProduct!==0){
             return elemnt

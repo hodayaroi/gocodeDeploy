@@ -1,0 +1,62 @@
+/* Header.css */
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ed6182;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0e0e0e;
+}
+
+.Navigation {
+  display: flex;
+}
+
+.Navigation a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #050505;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.Navigation a:hover {
+  color: #ff4081;
+}
+
+.Clock {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* TemporaryDrawer.css (Assuming it's a sidebar/drawer component) */
+
+.Drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #080808;
+  color: #fff;
+  padding: 20px;
+}
+
+.Drawer a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.Drawer a:hover {
+  color: #ff4081;
+}

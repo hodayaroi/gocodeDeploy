@@ -1,0 +1,132 @@
+.Admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.Admin h1 {
+  font-size: 32px;
+  margin: 0 0 20px;
+}
+
+.AdminTable {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.AdminTable table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+.AdminTable th {
+  padding: 12px 15px;
+  background-color: #e4416d;
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2px solid #b5b5b5;
+}
+
+.AdminTable td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #241818;
+}
+
+.AdminTable td img {
+  max-width: 50px;
+  height: auto;
+}
+
+.AdminTable td button {
+  background-color: #e4416d;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.AdminTable td button:hover {
+  background-color: #bd558d;
+}
+
+
+
+
+
+.AdminForm {
+  max-width: 400px;
+  width: 100%;
+  margin: 40px 0;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.AdminForm label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+
+
+
+
+.AdminForm button {
+  background-color: #4144e4;
+  color: #e4416d;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.AdminForm button:hover {
+  background-color: #e4416d;
+}
+.AddProduct {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.AddProduct input[type="text"], 
+.AddProduct input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.AddProduct input[type="text"]:focus, 
+.AddProduct input[type="number"]:focus {
+  outline: none;
+  border-color: #6e7c7c;
+  box-shadow: 0 0 5px #6e7c7c;
+}
+
+.AddProduct button {
+  background-color: #e4416d;
+  color: #f5eef0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.AddProduct button:hover {
+  background-color: #e4416d;
+}
+

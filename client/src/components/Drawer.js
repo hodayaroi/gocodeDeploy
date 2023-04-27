@@ -32,7 +32,7 @@ export default function TemporaryDrawer() {
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
             
-          <Button onClick={toggleDrawer(anchor, true)}><AiOutlineShoppingCart fontSize={50}/></Button>
+          <Button onClick={toggleDrawer(anchor, true)}><AiOutlineShoppingCart fontSize={50} color='black'/></Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}

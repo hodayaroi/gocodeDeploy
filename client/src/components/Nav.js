@@ -5,10 +5,9 @@ import Sort from './Sort'
 const Nav = () => {
   return (
     <nav className="product-filter">
-      <h1>Product</h1>
         <Sort />
-        <div className="clock-container">
-          <Clock />
+        <div className="Clock-container">
+          {/* <Clock /> */}
         </div>
     </nav>
   )

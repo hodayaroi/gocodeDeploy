@@ -19,7 +19,7 @@ const Cartshopping = () => {
   const removeProduct = (id) => {
     if (id !== "") {
       const updatedBuyProduct = buyProduct.map((element) => {
-        if (element.id === id) {
+        if (element._id === id) {
           const updatedElement = {
             ...element,
             countProduct: element.countProduct - 1,
@@ -44,7 +44,7 @@ const Cartshopping = () => {
   const addProduct = (id) => {
     if (id) {
       const updatedProducts = buyProduct.map((product) => {
-        if (product.id === id) {
+        if (product._id === id) {
           return { ...product, countProduct: product.countProduct + 1 };
         }
         return product;
@@ -64,7 +64,7 @@ const Cartshopping = () => {
   const remove = (id) => {
     if (id) {
       const updatedProducts = buyProduct.filter((product) => {
-        if (product.id !== id) {
+        if (product._id !== id) {
           return product;
         }
       });
@@ -78,8 +78,8 @@ const Cartshopping = () => {
       <div className="cart-items">
         {buyProduct &&
           buyProduct.map((product) =>
-            product && product.id && product.title && product.countProduct && product.image ? (
-              <div className="cart-item" key={product.id}>
+            product && product._id && product.title && product.countProduct  ? (
+              <div className="cart-item" key={product._id}>
                 <div className="product-image">
                   <img src={product.image} alt={product.title} />
                 </div>
@@ -87,10 +87,10 @@ const Cartshopping = () => {
                   <h5 className="product-title">{product.title}</h5>
                   <div className="product-price">{product.price} USD</div>
                   <div className="product-quantity">
-                    <HiMinusSm  onClick={() => removeProduct(product.id)}/>
+                    <HiMinusSm  onClick={() => removeProduct(product._id)}/>
                     <span >{product.countProduct}</span>
-                    <GoPlusSmall onClick={() => addProduct(product.id)}/>
-                    <h5 className="remove" onClick={()=>remove(product.id)}>remove</h5>
+                    <GoPlusSmall onClick={() => addProduct(product._id)}/>
+                    <h5 className="remove" onClick={()=>remove(product._id)}>remove</h5>
                   </div>
                 </div>
                 </div>
