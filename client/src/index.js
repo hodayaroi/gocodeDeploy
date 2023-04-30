@@ -19,7 +19,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/novgocodeprojectdeployed-6ubu.onrender.com/contact" element={<Contact />} />
         <Route path="/login/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="products/:productId" element={<ProductPage />} />
