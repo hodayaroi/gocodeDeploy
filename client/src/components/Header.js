@@ -12,7 +12,7 @@ const Header = () => {
       <nav className="Navigation">
         <a href="">Home</a>
         <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+        <a href="/novgocodeprojectdeployed-6ubu.onrender.com/contact">Contact</a>
         <a href="/login">Server</a>
 
         
