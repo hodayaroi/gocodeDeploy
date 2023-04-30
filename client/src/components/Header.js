@@ -11,9 +11,11 @@ const Header = () => {
       <div className="Logo">yaeli's cakes</div>
       <nav className="Navigation">
         <a href="">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="/admin">Server</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        {/* <a href="/admin">Server</a> */}
+        <a href="/login">Server</a>
+
         
       </nav>
     </header>

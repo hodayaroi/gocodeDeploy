@@ -1,39 +1,56 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import Cartshopping from "./Cartshopping";
-import MyContext from "../MyContext";
+import { useNavigate } from "react-router-dom";
+import Checkout from './CheckOut.js'
+import "./CartList.css";
 import { useContext } from "react";
-import { useLocation } from 'react-router-dom';
-import './CartList.css'; // import your CSS file
+import MyContext from "../MyContext";
 
-const CartList = () => { 
+const CartList = () => {
   const location = useLocation();
   const buyProduct = location.state.buyProduct || [];
+  // const { buyProduct } = useContext(MyContext);
+  const totalPrice = buyProduct.reduce(
+    (total, product) => total + product.price * product.countProduct,
+    0
+  );
+  const totalQuantity = buyProduct.reduce(
+    (total, product) => total + product.countProduct,
+    0
+  );
 
-  // Calculate the total price of all products in the cart
-  const totalPrice = buyProduct.reduce((total, product) => total + product.price, 0);
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/");
+  };
 
   return (
     <div className="checkout-container">
-      <div className="cart-list"> {/* add a class to the container div */}
+      <div className="cart-list">
         {buyProduct.map((product) => (
-          <div key={product._id}>
-            <h3>{product.title}</h3>
+          <div className="product-card" key={product._id}>
             <div className="product-image">
               <img src={product.image} alt={product.title} />
             </div>
-            <p>{product.countProduct}</p>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
+            <div className="product-details">
+              <h3 className="product-title">{product.title}</h3>
+              <p >Quantity: {product.countProduct}</p>
+              <p className="product-description">{product.description}</p>
+              <p className="product-price">{product.price}₪</p>
+            </div>
           </div>
         ))}
       </div>
 
       <div className="checkout-summary">
-        <h2>Order Summary</h2>
-        <p>Total Items: {buyProduct.length}</p>
-        <p>Total Price: {totalPrice}</p>
-        <button>Checkout</button>
+        <Checkout/>
+        <p className="total-items">Total Items: {totalQuantity}</p>
+        <p className="total-price">Total Price: {totalPrice} ₪</p>
+        <button className="checkout-button" onClick={handleCheckout}>
+          Proceed to Checkout
+        </button>
       </div>
     </div>
   );

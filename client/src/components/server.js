@@ -176,7 +176,7 @@ function Admin() {
               <td onClick={() => {navigate(`products/${product._id}`)}}>{new Date(product.dateCreated).toLocaleString('en-US', {timeZone: 'UTC', dateStyle: 'short', timeStyle: 'medium'})}</td>
               <td onClick={() => {navigate(`products/${product._id}`)}}>{product.category}</td>
               <td onClick={() => {navigate(`products/${product._id}`)}}>{product.description}</td>
-              <td onClick={() => {navigate(`products/${product._id}`)}}>{product.price}</td>
+              <td onClick={() => {navigate(`products/${product._id}`)}}>{product.price}₪</td>
               <td><button className="Delete-btn" onClick={()=>deleteProduct(product._id)}>delete</button></td>
               <td><button className="Edit-btn" onClick={()=>handleEdit(product._id)}>edit</button></td>
             </tr>

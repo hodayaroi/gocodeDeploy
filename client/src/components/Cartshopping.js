@@ -85,7 +85,7 @@ const Cartshopping = () => {
                 </div>
                 <div className="product-details">
                   <h5 className="product-title">{product.title}</h5>
-                  <div className="product-price">{product.price} USD</div>
+                  <div className="product-price">{product.price} ₪</div>
                   <div className="product-quantity">
                     <HiMinusSm  onClick={() => removeProduct(product._id)}/>
                     <span >{product.countProduct}</span>
@@ -99,7 +99,7 @@ const Cartshopping = () => {
             ) : <h5>The cart is empty</h5>
           )}
       </div>
-       <label className="total-price">Total: {total} USD</label>
+       <label className="total-price">Total: {total} ₪</label>
        </div>
 
 

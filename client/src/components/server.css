@@ -16,11 +16,12 @@
 }
 
 .AdminTable table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 14px;
-  text-align: left;
+  text-align: center;
+  margin: auto;
 }
 
 .AdminTable th {

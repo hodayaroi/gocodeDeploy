@@ -7,6 +7,10 @@ import ProductPage from './components/ProductPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartList from './components/CartList';
 import Admin from './components/server';
+import MyContext from './MyContext';
+import Login from './components/LoginForm';
+import About from './components/About.js'
+import Contact from './components/Contact';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,10 +19,13 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login/admin" element={<Admin />} />
+        <Route path="/login" element={<Login />} />
         <Route path="products/:productId" element={<ProductPage />} />
         <Route path="admin/products/:productId" element={<ProductPage />} />
-        <Route  path="/cartList" element={CartList} />
+        <Route  path="/cartList" element={<CartList/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

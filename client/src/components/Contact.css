@@ -1,0 +1,117 @@
+/* Contact.css */
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-header {
+  margin-bottom: 20px;
+}
+
+.contact-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.SendEmail {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 120px;
+}
+
+button[type="submit"] {
+  background-color: #e4416d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.success-message,
+.error-message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.success-message {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.error-message {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+
+.contact-info span {
+  color: #555;
+  cursor: pointer;
+}
+
+.email-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.contact-info p {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-icon {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.contact-icon-instagram {
+  color: #c13584;
+  margin-right: 5px;
+  cursor: pointer;
+}
+

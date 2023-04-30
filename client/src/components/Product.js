@@ -77,7 +77,7 @@ const Product =({id,imgUrl,title,price})=> {
         </div>
         <div className="product-info">
           <h5>{title}</h5>
-          <h6>{price}</h6>
+          <h6>{price} ₪</h6>
           <BsCartDash fontSize={30} color='red' onClick={removePruduct}/>
          <BsCartPlus fontSize={30} color='green' onClick={handleSubmit} />
         </div>

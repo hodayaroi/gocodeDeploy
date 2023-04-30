@@ -6,7 +6,8 @@ import TemporaryDrawer from "./components/Drawer";
 import { BrowserRouter as Router, Route, Link, json } from "react-router-dom";
 import Admin from "./components/server.js"
 import Header from "./components/Header.js"
-
+import { BrowserRouter } from 'react-router-dom';
+import Login from "./components/LoginForm";
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
   }, [buyProduct]);
 
   return (
+    // <BrowserRouter>
     <MyContext.Provider value={{productsData ,setproductsData,Allproducts,productsCopy,buyProduct,setbuyProduct}}>
      <div className="App">
       <Header />
@@ -38,6 +40,7 @@ const App = () => {
         <Products />
       </div>
     </MyContext.Provider>
+    // </BrowserRouter>
     
   );
 };
