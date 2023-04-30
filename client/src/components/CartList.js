@@ -30,7 +30,7 @@ const CartList = () => {
     <div className="checkout-container">
       <div className="cart-list">
         {buyProduct.map((product) => (
-          <div className="product-card" key={product._id}>
+          <div className="cart-item" key={product._id}>
             <div className="product-image">
               <img src={product.image} alt={product.title} />
             </div>

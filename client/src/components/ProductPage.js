@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import './ProductPage.css'
 const ProductPage = () => {
   const [chosenProduct, setChosenProduct] = useState({});
   const { productId } = useParams();
@@ -26,7 +26,7 @@ const ProductPage = () => {
       {chosenProduct && (
         <div className="product-details">
           <img
-            className="product-image"
+            className="product-image1"
             src={chosenProduct.image}
             alt={chosenProduct.title}
           />

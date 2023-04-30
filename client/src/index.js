@@ -24,7 +24,7 @@ root.render(
         <Route path="/login/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="products/:productId" element={<ProductPage />} />
-        <Route path="admin/products/:productId" element={<ProductPage />} />
+        <Route path="/login/admin/products/:productId" element={<ProductPage />} />
         <Route  path="/cartList" element={<CartList/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
