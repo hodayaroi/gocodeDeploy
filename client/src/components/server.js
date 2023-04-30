@@ -58,7 +58,7 @@ function Admin() {
     console.log(formData)
     console.log(JSON.stringify(formData))
   
-    fetch(`http://localhost:9000/api/updateProduct/${id}`, {
+    fetch(`https://novgocodeprojectdeployed-6ubu.onrender.com/api/updateProduct/${id}`, {
       method: 'PUT',
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json" }
@@ -85,7 +85,7 @@ function Admin() {
     console.log(formData)
     console.log(JSON.stringify(formData))
   
-    fetch(`http://localhost:9000/api/addProduct`, {
+    fetch(`https://novgocodeprojectdeployed-6ubu.onrender.com/api/addProduct`, {
       method: 'POST',
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json" }
@@ -110,7 +110,7 @@ function Admin() {
 
   
   useEffect(()=>{
-    fetch("http://localhost:9000/api/products")
+    fetch("https://novgocodeprojectdeployed-6ubu.onrender.com/api/products")
     .then(response=>response.json())
     .then(data =>{
       setProducts(data);
@@ -119,7 +119,7 @@ function Admin() {
 
 
   const deleteProduct = (id)=>{
-    fetch(`http://localhost:9000/api/deleteProduct/${id}`,{
+    fetch(`https://novgocodeprojectdeployed-6ubu.onrender.com/api/deleteProduct/${id}`,{
       method:'DELETE'
     }).then((result)=>{
       result.json().then((resp)=>{
