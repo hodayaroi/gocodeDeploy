@@ -7,7 +7,6 @@ import ProductPage from './components/ProductPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartList from './components/CartList';
 import Admin from './components/server';
-import MyContext from './MyContext';
 import Login from './components/LoginForm';
 import About from './components/About.js'
 import Contact from './components/Contact';

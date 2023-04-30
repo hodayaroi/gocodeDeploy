@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { upload } from './middlewares/upload.js';
 import cors from "cors"; // Import the cors package
 import {
   getOneproductController,
@@ -9,7 +8,7 @@ import {
   addProductController,
   updateProductController,
   deleteProductController,
-} from "../servertoddo/controllers/Product.js"; 
+} from "./controllers/Product.js"; 
 dotenv.config();
 const {PORT,DB_USER,DB_PASS,DB_HOST,DB_NAME}=process.env
 const app = express();
