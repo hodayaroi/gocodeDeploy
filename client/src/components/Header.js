@@ -13,7 +13,6 @@ const Header = () => {
         <a href="">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
-        {/* <a href="/admin">Server</a> */}
         <a href="/login">Server</a>
 
         
