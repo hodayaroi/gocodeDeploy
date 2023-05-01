@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const users = [{ name: 'hroi', password: 'hr181201' }, { name: 'chana', password: 'ch020801' }];
+  const users = [{ name: 'hroi', password: 'hr181201' }, { name: 'chana', password: 'ch020801' }, { name: 'yael', password: '12345' }];
 
   const handleNameChange = (event) => {
     setName(event.target.value);

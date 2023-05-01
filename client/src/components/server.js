@@ -28,10 +28,7 @@ function Admin() {
 
   const handleEdit=(id)=>{
     setUpdateProduct(id);
-    // Find the selected product by ID
   const selectedProduct = products.find((product) => product._id === id);
-
-  // Update the formData state with the values of the selected product
   setFormData({
     title: selectedProduct.title,
     image: selectedProduct.image,
@@ -185,7 +182,7 @@ function Admin() {
       </div>
       <h1>add product</h1>
       <form className="AddProduct" >
-        <input type="text" name="title" required="required" placeholder="enter a title" onChange={handleInputChange}/>
+        <input type="text" name="title"  required="required" placeholder="enter a title" onChange={handleInputChange}/>
         <input type="text" name="image" required="required" placeholder="enter a url image" onChange={handleInputChange}/>
         <input type="text" name="category" required="required" placeholder="enter a category" onChange={handleInputChange}/>
         <input type="text" name="description" required="required" placeholder="enter a description" onChange={handleInputChange}/>
