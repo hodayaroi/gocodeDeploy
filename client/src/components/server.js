@@ -80,7 +80,7 @@ function Admin() {
   };
 
   const handleAdd = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     const id = updateProduct;
     console.log(JSON.stringify(formData))
   
