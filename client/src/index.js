@@ -18,7 +18,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
+        <Route path="https://novgocodeprojectdeployed-6ubu.onrender.com/about" element={<About />} />
         <Route path="/novgocodeprojectdeployed-6ubu.onrender.com/contact" element={<Contact />} />
         <Route path="/login/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />

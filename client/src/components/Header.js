@@ -2,8 +2,11 @@ import React from 'react';
 import './Header.css';
 import TemporaryDrawer from './Drawer';
 import Clock from './Clock';
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="Header">
       <TemporaryDrawer/>
@@ -12,8 +15,9 @@ const Header = () => {
       <nav className="Navigation">
         <a href="">Home</a>
         <a href="/about">About</a>
-        <a href="/novgocodeprojectdeployed-6ubu.onrender.com/contact">Contact</a>
-        <a href="/login">Server</a>
+        <a href="/contact">Contact</a>
+        {/* <a href="/login">Server</a> */}
+        <Link to="/login">Server</Link>
 
         
       </nav>
