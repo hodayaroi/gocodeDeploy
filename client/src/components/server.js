@@ -82,7 +82,6 @@ function Admin() {
   const handleAdd = (event) => {
     // event.preventDefault();
     const id = updateProduct;
-    console.log(formData)
     console.log(JSON.stringify(formData))
   
     fetch(`https://novgocodeprojectdeployed-6ubu.onrender.com/api/addProduct`, {
@@ -191,7 +190,7 @@ function Admin() {
         <input type="text" name="category" required="required" placeholder="enter a category" onChange={handleInputChange}/>
         <input type="text" name="description" required="required" placeholder="enter a description" onChange={handleInputChange}/>
         <input type="number" name="price" required="required" placeholder="enter a number" onChange={handleInputChange}/>
-        <button type="sumbit" onClick={()=>handleAdd()}>add</button>
+        <button type="sumbit" onClick={handleAdd}>add</button>
       </form>
       
     </div>
